@@ -1,0 +1,19 @@
+import java.io.*;
+
+class CreateFile
+{
+	public static void main (String args[]) throws IOException
+	{
+		DataInputStream dis = new DataInputStream(System.in);
+		FileOutputStream fout = new FileOutputStream("myfile.txt",true); //for preserve data true
+		
+		System.out.println("Enter Text [@ at the end] : ");
+		char ch;
+
+		while((ch=(char)dis.read())!='@')
+		{
+			fout.write(ch);
+		}
+		fout.close(); //if we do not close file after proccessing then it is risk to corrupt our data...!!
+	}
+}
